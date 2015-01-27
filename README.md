@@ -7,7 +7,7 @@ container.
 
 ## Usage
 
-    docker run -d --name=devpi tonyseek/devpi:2.1.3
+    docker run -d --name=devpi -p 80:80 tonyseek/devpi:2.1.3
 
 [devpi]: http://doc.devpi.net/latest/
 [docker]: http://www.docker.com
