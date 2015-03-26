@@ -1,5 +1,9 @@
-FROM python:2.7.9-onbuild
+FROM python:2.7.9-slim
 MAINTAINER Jiangge Zhang <tonyseek@gmail.com>
+
+RUN mkdir /usr/local/src/devpi/
+COPY requirements.txt /usr/local/src/devpi/
+RUN pip install -r /usr/local/src/devpi/requirements.txt
 
 EXPOSE 80
 VOLUME ["/var/lib/devpi"]
