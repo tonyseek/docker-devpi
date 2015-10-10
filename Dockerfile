@@ -1,4 +1,4 @@
-FROM python:2.7.9-slim
+FROM python:2.7.10-slim
 MAINTAINER Jiangge Zhang <tonyseek@gmail.com>
 
 RUN mkdir /usr/local/src/devpi/
