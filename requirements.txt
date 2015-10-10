@@ -10,6 +10,7 @@ chameleon==2.22           # via pyramid-chameleon
 check-manifest==0.25      # via devpi-client
 devpi-client==2.3.1
 devpi-common==2.0.7       # via devpi-client, devpi-server, devpi-web
+devpi-ldap==1.1.0
 devpi-server==2.3.1
 devpi-web==2.4.1
 docutils==0.12            # via devpi-web
@@ -19,10 +20,12 @@ pastedeploy==1.5.2        # via pyramid
 pkginfo==1.2.1            # via devpi-client
 pluggy==0.3.1             # via devpi-server, tox
 py==1.4.30                # via devpi-client, devpi-common, devpi-server, tox
+pyasn1==0.1.9             # via python3-ldap
 pygments==2.0.2           # via devpi-web
 pyramid-chameleon==0.3    # via devpi-web
 pyramid==1.5.7            # via devpi-server, devpi-web, pyramid-chameleon
-pyyaml==3.11              # via devpi-server
+python3-ldap==0.9.8.4     # via devpi-ldap
+pyyaml==3.11              # via devpi-ldap, devpi-server
 repoze.lru==0.6           # via devpi-server, pyramid
 requests==2.8.0           # via devpi-common
 tox==2.1.1                # via devpi-client
