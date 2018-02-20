@@ -1,4 +1,4 @@
-FROM python:2.7.10-slim
+FROM python:2.7.14-slim
 MAINTAINER Jiangge Zhang <tonyseek@gmail.com>
 
 RUN mkdir /usr/local/src/devpi/
@@ -9,7 +9,8 @@ COPY entrypoint.py /usr/local/bin/devpi-entrypoint
 RUN chmod +x /usr/local/bin/devpi-entrypoint
 
 EXPOSE 80
+ENV DEVPI_SERVERDIR /var/lib/devpi
 VOLUME ["/var/lib/devpi"]
 
-ENTRYPOINT ["devpi-entrypoint", "--serverdir=/var/lib/devpi"]
+ENTRYPOINT ["devpi-entrypoint"]
 CMD ["--host=0.0.0.0", "--port=80"]
