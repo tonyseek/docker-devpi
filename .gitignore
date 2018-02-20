@@ -1,1 +1,4 @@
-/.cache
+.cache
+.devpi
+.bash_*
+lib

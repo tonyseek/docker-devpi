@@ -1,1 +1,5 @@
 .git
+.cache
+.devpi
+.bash_*
+lib

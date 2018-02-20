@@ -4,6 +4,39 @@ services:
     build: .
     volumes:
       - ".:/root"
+      - "./lib/devpi:/var/lib/devpi"
+    links:
+      - "ldap"
+    depends_on:
+      - "ldap"
+    ports:
+      - "80"
+    environment:
+      LDAP_ENABLED: "true"
+      LDAP_URL: "ldap://ldap:389"
+      LDAP_USER_TEMPLATE: "CN={username},DC=example,DC=org"
+  ldap:
+    image: osixia/openldap:1.1.11
+    volumes:
+      - "./lib/ldap:/var/lib/ldap"
+    ports:
+      - "389"
+    environment:
+      LDAP_ORGANISATION: "Example Inc."
+      LDAP_DOMAIN: "example.org"
+      LDAP_READONLY_USER: "true"
+      LDAP_TLS: "false"
+  ldap-admin:
+    image: osixia/phpldapadmin:0.7.1
+    links:
+      - "ldap"
+    depends_on:
+      - "ldap"
+    ports:
+      - "80"
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: "ldap"
+      PHPLDAPADMIN_HTTPS: "false"
   build:
     image: python:2.7.14-slim
     entrypoint: "/root/entrypoint-build.sh"

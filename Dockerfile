@@ -9,7 +9,8 @@ COPY entrypoint.py /usr/local/bin/devpi-entrypoint
 RUN chmod +x /usr/local/bin/devpi-entrypoint
 
 EXPOSE 80
+ENV DEVPI_SERVERDIR /var/lib/devpi
 VOLUME ["/var/lib/devpi"]
 
-ENTRYPOINT ["devpi-entrypoint", "--serverdir=/var/lib/devpi"]
+ENTRYPOINT ["devpi-entrypoint"]
 CMD ["--host=0.0.0.0", "--port=80"]
