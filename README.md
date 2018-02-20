@@ -1,44 +1,55 @@
+![Docker Pulls](https://img.shields.io/docker/pulls/tonyseek/devpi.svg)
+![Docker Stars](https://img.shields.io/docker/stars/tonyseek/devpi.svg)
+![Docker Image Size](https://images.microbadger.com/badges/image/tonyseek/devpi.svg)
+
 # devpi-docker
 
-## Introduction
+The [Docker][docker] image of [devpi][devpi] with LDAP integration.
 
-Host your private PyPI server by running [devpi][devpi] as a [Docker][docker]
-container.
+## Quick Start
 
-## Usage
+Create the data directory:
 
-    docker run -d --name=devpi -p 80:80 tonyseek/devpi:2.1.5-1
+    docker run --rm --volume ./lib/devpi:/var/lib/devpi \
+        tonyseek/devpi:4.4.0-1 --init
+
+Run the server:
+
+    docker run --rm --volume ./lib/devpi:/var/lib/devpi \
+        tonyseek/devpi:4.4.0-1
 
 ## Upgrading
 
-For example, to upgrade devpi from `2.1.3-1` to `2.1.5-1`, we need to:
+Export data from the volume of old container:
 
-1. Update the docker image:
+    docker run --rm --volume ./lib/devpi:/var/lib/devpi \
+        --volume ./backup:/var/lib/devpi-backup tonyseek/devpi:$OLD_VERSION \
+        --export /var/lib/devpi-backup
 
-       docker pull tonyseek/devpi:2.1.5-1
+Import data to the volume of new container:
 
-2. Stop the running container:
+    docker run --rm --volume ./lib/devpi:/var/lib/devpi \
+        --volume ./backup:/var/lib/devpi-backup tonyseek/devpi:4.4.0-1 \
+        --import /var/lib/devpi-backup
 
-       docker stop devpi
+## Development
 
-2. Export data to a new container:
+The docker-compose makes development be easy:
 
-       BACKUP_DIR=/var/lib/devpi-upgrade
-       docker run --name=devpi-upgrade --volume=$BACKUP_DIR --volumes-from=devpi tonyseek/devpi:2.1.3-1 --export=$BACKUP_DIR
+    make init
+    make up
 
-3. Import data from that container using new image:
+Once the `requirements.in` was changed, the `requirements.txt` should be
+compiled again:
 
-       docker run --rm --volumes-from=devpi-upgrade --volumes-from=devpi tonyseek/devpi:2.1.5-1 --import=$BACKUP_DIR
+    make compile-deps
 
-4. Remove the old container and create the new one:
+More commands are described in `make help`.
 
-       docker run --name=devpi-data --volumes-from=devpi busybox true
-       docker rm devpi
-       docker run -d --name=devpi -p 80:80 tonyseek/devpi:2.1.5-1
+## Contributing
 
-5. Check the new devpi on its website and remove useless containers:
-
-       docker rm devpi-data devpi-upgrade
+If you want to report bugs or request features, please feel free to open
+issues or pull requests on GitHub.
 
 [devpi]: http://doc.devpi.net/latest/
 [docker]: http://www.docker.com
