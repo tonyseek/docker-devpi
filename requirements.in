@@ -1,4 +1,4 @@
-devpi-server==2.3.1
-devpi-client==2.3.1
-devpi-web==2.4.1
-devpi-ldap==1.1.0
+devpi-server>=4.4,<4.5
+devpi-client>=4.0,<4.1
+devpi-web>=3.2,<3.3
+devpi-ldap>=1.2,<1.3
