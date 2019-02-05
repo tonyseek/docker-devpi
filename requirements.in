@@ -4,3 +4,5 @@ devpi-web>=3.2,<3.3
 devpi-ldap>=1.2,<1.3
 requests>=2.20.0         # CVE-2018-18074
 urllib3>=1.23            # CVE-2018-20060
+pyyaml>=4.2b1            # CVE-2017-18342
+bleach>=2.1.3            # CVE-2018-7753
