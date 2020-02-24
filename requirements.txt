@@ -7,7 +7,7 @@
 apipkg==1.4               # via execnet
 argon2-cffi==18.1.0       # via passlib
 beautifulsoup4==4.6.0     # via devpi-web
-bleach==3.1.0
+bleach==3.1.1
 certifi==2018.1.18        # via requests
 cffi==1.11.4              # via argon2-cffi
 chameleon==3.2            # via pyramid-chameleon
@@ -20,7 +20,6 @@ devpi-ldap==1.2.0
 devpi-server==4.4.0
 devpi-web==3.2.2
 docutils==0.14            # via devpi-web, readme-renderer
-enum34==1.1.6             # via argon2-cffi
 execnet==1.5.0            # via devpi-server
 hupper==1.0               # via pyramid
 idna==2.6                 # via requests
