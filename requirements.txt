@@ -4,53 +4,140 @@
 #
 #    pip-compile requirements.in
 #
-apipkg==1.4               # via execnet
-argon2-cffi==18.1.0       # via passlib
-beautifulsoup4==4.6.0     # via devpi-web
+apipkg==1.4
+    # via execnet
+argon2-cffi==18.1.0
+    # via passlib
+beautifulsoup4==4.6.0
+    # via devpi-web
 bleach==3.1.0
-certifi==2018.1.18        # via requests
-cffi==1.11.4              # via argon2-cffi
-chameleon==3.2            # via pyramid-chameleon
-chardet==3.0.4            # via requests
-check-manifest==0.36      # via devpi-client
-defusedxml==0.5.0         # via devpi-web
+    # via
+    #   -r requirements.in
+    #   readme-renderer
+certifi==2018.1.18
+    # via requests
+cffi==1.11.4
+    # via argon2-cffi
+chameleon==3.2
+    # via pyramid-chameleon
+chardet==3.0.4
+    # via requests
+check-manifest==0.36
+    # via devpi-client
+defusedxml==0.5.0
+    # via devpi-web
 devpi-client==4.0.1
-devpi-common==3.2.1       # via devpi-client, devpi-server, devpi-web
+    # via -r requirements.in
+devpi-common==3.2.1
+    # via
+    #   devpi-client
+    #   devpi-server
+    #   devpi-web
 devpi-ldap==1.2.0
+    # via -r requirements.in
 devpi-server==4.4.0
+    # via
+    #   -r requirements.in
+    #   devpi-ldap
+    #   devpi-web
 devpi-web==3.2.2
-docutils==0.14            # via devpi-web, readme-renderer
-enum34==1.1.6             # via argon2-cffi
-execnet==1.5.0            # via devpi-server
-hupper==1.0               # via pyramid
-idna==2.6                 # via requests
-itsdangerous==0.24        # via devpi-server
-ldap3==2.4.1              # via devpi-ldap
-passlib[argon2]==1.7.1    # via devpi-server
-pastedeploy==1.5.2        # via plaster-pastedeploy, pyramid
-pkginfo==1.4.1            # via devpi-client
-plaster-pastedeploy==0.4.2  # via pyramid
-plaster==1.0              # via plaster-pastedeploy, pyramid
-pluggy==0.6.0             # via devpi-server, tox
-py==1.5.2                 # via devpi-client, devpi-common, devpi-server, tox
-pyasn1==0.4.2             # via ldap3
-pycparser==2.18           # via cffi
-pygments==2.2.0           # via devpi-web, readme-renderer
-pyramid-chameleon==0.3    # via devpi-web
-pyramid==1.9.1            # via devpi-server, devpi-web, pyramid-chameleon
+    # via -r requirements.in
+docutils==0.14
+    # via
+    #   devpi-web
+    #   readme-renderer
+enum34==1.1.6
+    # via argon2-cffi
+execnet==1.5.0
+    # via devpi-server
+hupper==1.0
+    # via pyramid
+idna==2.6
+    # via requests
+itsdangerous==0.24
+    # via devpi-server
+ldap3==2.4.1
+    # via devpi-ldap
+passlib[argon2]==1.7.1
+    # via devpi-server
+pastedeploy==1.5.2
+    # via
+    #   plaster-pastedeploy
+    #   pyramid
+pkginfo==1.4.1
+    # via devpi-client
+plaster-pastedeploy==0.4.2
+    # via pyramid
+plaster==1.0
+    # via
+    #   plaster-pastedeploy
+    #   pyramid
+pluggy==0.6.0
+    # via
+    #   devpi-server
+    #   tox
+py==1.10.0
+    # via
+    #   devpi-client
+    #   devpi-common
+    #   devpi-server
+    #   tox
+pyasn1==0.4.2
+    # via ldap3
+pycparser==2.18
+    # via cffi
+pygments==2.2.0
+    # via
+    #   devpi-web
+    #   readme-renderer
+pyramid-chameleon==0.3
+    # via devpi-web
+pyramid==1.9.1
+    # via
+    #   devpi-server
+    #   devpi-web
+    #   pyramid-chameleon
 pyyaml==4.2b4
-readme-renderer==17.2     # via devpi-web
-repoze.lru==0.7           # via devpi-server, pyramid
+    # via
+    #   -r requirements.in
+    #   devpi-ldap
+readme-renderer==17.2
+    # via devpi-web
+repoze.lru==0.7
+    # via
+    #   devpi-server
+    #   pyramid
 requests==2.20.0
-six==1.11.0               # via argon2-cffi, bleach, readme-renderer, tox
-tox==2.9.1                # via devpi-client
-translationstring==1.3    # via pyramid
+    # via
+    #   -r requirements.in
+    #   devpi-common
+six==1.11.0
+    # via
+    #   argon2-cffi
+    #   bleach
+    #   readme-renderer
+    #   tox
+tox==2.9.1
+    # via devpi-client
+translationstring==1.3
+    # via pyramid
 urllib3==1.24.3
-venusian==1.1.0           # via pyramid
-virtualenv==15.1.0        # via tox
-waitress==1.1.0           # via devpi-server
-webencodings==0.5.1       # via bleach
-webob==1.8.0rc1           # via pyramid
-whoosh==2.7.4             # via devpi-web
-zope.deprecation==4.3.0   # via pyramid
-zope.interface==4.4.3     # via pyramid
+    # via
+    #   -r requirements.in
+    #   requests
+venusian==1.1.0
+    # via pyramid
+virtualenv==15.1.0
+    # via tox
+waitress==1.1.0
+    # via devpi-server
+webencodings==0.5.1
+    # via bleach
+webob==1.8.0rc1
+    # via pyramid
+whoosh==2.7.4
+    # via devpi-web
+zope.deprecation==4.3.0
+    # via pyramid
+zope.interface==4.4.3
+    # via pyramid
